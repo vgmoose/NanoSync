@@ -13,9 +13,6 @@
 		9C2BD4851BE739950032CDC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2BD4831BE739950032CDC6 /* Main.storyboard */; };
 		9C2BD48D1BE73EDC0032CDC6 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2BD48C1BE73EDC0032CDC6 /* config.swift */; settings = {ASSET_TAGS = (); }; };
 		9C2BD48F1BE73F350032CDC6 /* NUPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2BD48E1BE73F350032CDC6 /* NUPreferencesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		9C2BD4991BE755900032CDC6 /* word_count.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 9C2BD4981BE755900032CDC6 /* word_count.applescript */; settings = {ASSET_TAGS = (); }; };
-		9C2BD49B1BE756B40032CDC6 /* upload.py in Resources */ = {isa = PBXBuildFile; fileRef = 9C2BD49A1BE756B40032CDC6 /* upload.py */; settings = {ASSET_TAGS = (); }; };
-		9C2BD49C1BE758D00032CDC6 /* word_count.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 9C2BD4981BE755900032CDC6 /* word_count.applescript */; };
 		9C2BD49E1BE75EAF0032CDC6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9C2BD49D1BE75EAF0032CDC6 /* README.md */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -29,8 +26,6 @@
 		9C2BD48C1BE73EDC0032CDC6 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		9C2BD48E1BE73F350032CDC6 /* NUPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NUPreferencesViewController.swift; sourceTree = "<group>"; };
 		9C2BD4951BE750D40032CDC6 /* NanoUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NanoUp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		9C2BD4981BE755900032CDC6 /* word_count.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = word_count.applescript; sourceTree = "<group>"; };
-		9C2BD49A1BE756B40032CDC6 /* upload.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = upload.py; sourceTree = "<group>"; };
 		9C2BD49D1BE75EAF0032CDC6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,8 +66,6 @@
 				9C2BD4831BE739950032CDC6 /* Main.storyboard */,
 				9C2BD4951BE750D40032CDC6 /* NanoUp-Bridging-Header.h */,
 				9C2BD4861BE739950032CDC6 /* Info.plist */,
-				9C2BD4981BE755900032CDC6 /* word_count.applescript */,
-				9C2BD49A1BE756B40032CDC6 /* upload.py */,
 				9C2BD48C1BE73EDC0032CDC6 /* config.swift */,
 				9C2BD48E1BE73F350032CDC6 /* NUPreferencesViewController.swift */,
 			);
@@ -137,8 +130,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C2BD49C1BE758D00032CDC6 /* word_count.applescript in Resources */,
-				9C2BD49B1BE756B40032CDC6 /* upload.py in Resources */,
 				9C2BD4821BE739950032CDC6 /* Assets.xcassets in Resources */,
 				9C2BD4851BE739950032CDC6 /* Main.storyboard in Resources */,
 			);
@@ -156,7 +147,6 @@
 				9C2BD4801BE739950032CDC6 /* ViewController.swift in Sources */,
 				9C2BD48F1BE73F350032CDC6 /* NUPreferencesViewController.swift in Sources */,
 				9C2BD47E1BE739950032CDC6 /* AppDelegate.swift in Sources */,
-				9C2BD4991BE755900032CDC6 /* word_count.applescript in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 
 import Cocoa
+import ScriptingBridge
 
 extension String {
     func sha1() -> String {
@@ -18,6 +19,21 @@ extension String {
         return hexBytes.joinWithSeparator("")
     }
 }
+
+@objc protocol PagesApplication {
+    optional var documents: SBElementArray {get}
+}
+
+@objc protocol PagesDocument {
+    optional var bodyText: PagesText {get}
+}
+
+@objc protocol PagesText {
+    optional var words: SBElementArray {get}
+}
+
+extension SBApplication : PagesApplication {}
+
 
 class ViewController: NSViewController
 {
@@ -82,14 +98,40 @@ class ViewController: NSViewController
 
     func updateWc(name: String, key: String)
     {
-        let applescriptPath = NSBundle.mainBundle().pathForResource("word_count", ofType: "applescript")
-
-        let task = NSTask()
-        task.launchPath = "/usr/bin/osascript"
-        task.arguments = [applescriptPath!, name, key]
+        let pages: PagesApplication = SBApplication(bundleIdentifier: "com.apple.iWork.Pages")!
+        let doc = pages.documents!.firstObject
+        let text: PagesText = doc!.bodyText!
+        let words: SBElementArray = text.words!
+        let wc:String = String(words.count)
         
-        task.launch()
+        let requestURL = NSURL(string:"http://nanowrimo.org/api/wordcount")!
+        
+        let fullCode = (key+name+wc).sha1()
+        
+        let submitMe = "_method=PUT&hash="+fullCode+"&name="+name+"&wordcount="+wc
+        print(submitMe)
+        
+        let request = NSMutableURLRequest(URL: requestURL)
+        request.HTTPMethod = "POST"
+        request.HTTPBody =  submitMe.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+            {
+                (response, data, error) in
+                print(response)
+                
+        }
+
+
+        
     }
+    
+    func completed(a:NSData?, b:NSURLResponse?, c:NSError?) -> Void
+    {
+        print(b)
+    }
+
+
     
     func startWc() -> Float
     {
@@ -98,7 +140,7 @@ class ViewController: NSViewController
         let key = config.1
         let interval = config.2
         
-        if interval <= 0 { return 0}
+        if interval <= 0 { return 0 }
         
         updateWc(name, key: key)
         return interval
@@ -117,7 +159,7 @@ class ViewController: NSViewController
             timer = NSTimer.scheduledTimerWithTimeInterval(Double(interval), target: self, selector: Selector("startWc"), userInfo: nil, repeats: true)
             
             statusLabel.stringValue = "Status: Running!"
-            updateButton.title = "Stop Updater"
+            updateButton.title = "Stop"
             
         }
         else
@@ -129,7 +171,7 @@ class ViewController: NSViewController
             }
             
             statusLabel.stringValue = "Status: Not Running"
-            updateButton.title = "Start Updater"
+            updateButton.title = "Sync Now"
         }
     }
 

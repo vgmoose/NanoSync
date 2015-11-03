@@ -677,9 +677,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ky-9U-gYa">
-                                <rect key="frame" x="25" y="56" width="123" height="32"/>
+                                <rect key="frame" x="23" y="56" width="125" height="32"/>
                                 <animations/>
-                                <buttonCell key="cell" type="push" title="Start Updater" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Guq-lk-GRo">
+                                <buttonCell key="cell" type="push" title="Sync Now" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Guq-lk-GRo">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
